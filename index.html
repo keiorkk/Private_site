@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="font-sans bg-black text-white">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-sm shadow-sm z-50" x-data="{ isOpen: false }">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-xl font-bold">Li Jinxuan</a>
+                
+                <!-- Mobile menu button -->
+                <button @click="isOpen = !isOpen" class="md:hidden">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-blue-600">About</a>
+                    <a href="#home" class="hover:text-blue-600">Photo</a>
+                    <a href="#contact" class="hover:text-blue-600">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden" x-show="isOpen" @click.away="isOpen = false">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#about" class="block px-3 py-2 hover:bg-gray-100 rounded">About</a>
+                    <a href="#home" class="block px-3 py-2 hover:bg-gray-100 rounded">Gallery</a>
+                    <a href="#contact" class="block px-3 py-2 hover:bg-gray-100 rounded">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="pt-16 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <img src="imgs/8721733062041_.pic.jpg" alt="Li Jinxuan" 
+                     class="w-32 h-32 rounded-full mx-auto mb-8 object-cover shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 text-white">Li Jinxuan</h2>
+                <p class="text-gray-300 mb-6">
+                    November 29, 1999<br>
+                    Currently based in Kanagawa, Japan<br>
+                    Graduate Student at Keio University SDM<br>
+                    Bachelor's Degree in Computer Science<br>
+                    Passionate about music, especially singing and playing guitar
+                </p>
+                <p class="text-xl font-semibold text-gray-100 italic">
+                    "Thanks for visiting"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="group relative cursor-pointer">
+                    <img src="imgs/8711733062040_.pic.jpg" alt="Portrait 1" 
+                         class="w-full aspect-square object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <h3 class="text-lg font-bold">Portrait</h3>
+                            <p class="text-xs">2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative cursor-pointer">
+                    <img src="imgs/8731733062041_.pic.jpg" alt="Portrait 2" 
+                         class="w-full aspect-square object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <h3 class="text-lg font-bold">Lifestyle</h3>
+                            <p class="text-xs">2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative cursor-pointer">
+                    <img src="imgs/8751733062043_.pic.jpg" alt="Portrait 3" 
+                         class="w-full aspect-square object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <h3 class="text-lg font-bold">Daily Life</h3>
+                            <p class="text-xs">2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group relative cursor-pointer">
+                    <img src="imgs/8771733062044_.pic.jpg" alt="Portrait 4" 
+                         class="w-full aspect-square object-cover rounded-lg">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <h3 class="text-lg font-bold">Moments</h3>
+                            <p class="text-xs">2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Landscape Gallery Section -->
+    <section id="home" class="py-20">
+        <div class="swiper mySwiper h-[60vh]">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide flex items-center justify-center bg-black">
+                    <img src="imgs/8791733062046_.pic.jpg" class="h-full w-auto max-w-none object-contain" alt="Landscape 1">
+                </div>
+                <div class="swiper-slide flex items-center justify-center bg-black">
+                    <img src="imgs/8781733062045_.pic.jpg" class="h-full w-auto max-w-none object-contain" alt="Landscape 2">
+                </div>
+                <div class="swiper-slide flex items-center justify-center bg-black">
+                    <img src="imgs/8741733062042_.pic.jpg" class="h-full w-auto max-w-none object-contain" alt="Landscape 3">
+                </div>
+                <div class="swiper-slide flex items-center justify-center bg-black">
+                    <img src="imgs/8761733062044_.pic.jpg" class="h-full w-auto max-w-none object-contain" alt="Landscape 4">
+                </div>
+                <div class="swiper-slide flex items-center justify-center bg-black">
+                    <img src="imgs/8801733062046_.pic.jpg" class="h-full w-auto max-w-none object-contain" alt="Landscape 5">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="https://www.facebook.com/share/1TepobfoJw/?mibextid=LQQJ4d" 
+                   class="text-3xl hover:text-blue-400 transition-colors"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/r.kinken_1129/profilecard/?igsh=cWprcXRmcXBzNGhm" 
+                   class="text-3xl hover:text-pink-400 transition-colors"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@MelaKEN-b2u" 
+                   class="text-3xl hover:text-red-500 transition-colors"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/金軒-李-265571320" 
+                   class="text-3xl hover:text-blue-500 transition-colors"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p class="text-gray-300">© 2024 Li Jinxuan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化 Swiper
+        const swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            effect: "fade",
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+</html> 
